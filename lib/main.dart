@@ -62,28 +62,21 @@ class _MyHomePageState extends State<MyHomePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              _buildButton(
-                text: 'Start Camera',
-                onPressed: _communicationService.startVideoStream,
-              ),
               const SizedBox(width: 20),
               _buildButton(
                 text: 'Call',
-                onPressed: () {
+                onPressed: () async {
+                  await _communicationService.startVideoStream();
                   _communicationService.call();
                 },
               ),
               const SizedBox(width: 20),
               _buildButton(
                 text: 'Accept',
-                onPressed: () {
+                onPressed: () async {
+                  await _communicationService.startVideoStream();
                   _communicationService.accept('V2JcFD6cACuWreI01pNy');
                 },
-              ),
-              const SizedBox(width: 20),
-              _buildButton(
-                text: 'Hang Up',
-                onPressed: _communicationService.hangUp,
               ),
             ],
           ),

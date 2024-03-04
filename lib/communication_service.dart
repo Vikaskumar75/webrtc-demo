@@ -36,7 +36,7 @@ class CommunicationService {
 
   Future<void> startVideoStream() async {
     localStream = await navigator.mediaDevices.getUserMedia({
-      'audio': false,
+      'audio': true,
       'video': true,
     });
 
